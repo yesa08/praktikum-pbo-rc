@@ -1,0 +1,26 @@
+#Nama :Yesa Viola
+#NIM  : 122140133
+
+class Robot:
+    def _init_(self, nama, energi=100):
+        self.nama = nama
+        self.energi = energi
+
+    def serang(self, lawan):
+        serangan = random.randint(5, 20)
+        print(f"{self.nama} menyerang {lawan.nama} dengan serangan sebesar {serangan} damage.")
+        lawan.diserang(serangan)
+
+    def diserang(self, serangan):
+        print(f"{self.nama} menerima serangan sebesar {serangan} damage.")
+        self.energi -= serangan
+        if self.energi <= 0:
+            print(f"{self.nama} kalah dalam pertempuran.")
+
+
+robot1 = Robot("Robot Bumblebee")
+robot2 = Robot("Robot Optimus Prime")
+
+for i in range(3):
+    robot1.serang(robot2)
+    robot2.serang(robot1)
